@@ -1,0 +1,25 @@
+.footer{
+  background-color: #607D8B;
+  border-radius: 0 !important;
+  width: 100%;
+  margin-bottom: 0;
+  color: white;
+}
+
+.footerElement {
+  display: inline;
+  text-align: center;
+  margin: 0 15px;
+  line-height: 50px;
+}
+
+#gitBtn{
+  margin-top: 7px;
+  margin-bottom: 7px;
+}
+
+#gitBtn:hover {
+  background-color: #E91E63;
+  color: white;
+}
+

@@ -1,0 +1,70 @@
+<div class="container-fluid">
+
+  <div class="row bg-vert-gray-green">
+
+    <!--  LEFT HALF -->
+    <div class="col-lg-6 col-sm-12 left greyMaterial-bg">
+      <div class="col-xs-12 maxWidth-600">
+        <br>
+        <h1 class="centered greenMaterial text-uppercase">Compétences<br>&<br>Technique</h1>
+        <br>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item greenMaterial-border"
+              *ngFor="let competence of competences; let i=index"
+              (click)="toggleCompetences(competence.titre, i)"
+              [ngClass]="{active:(i==selectedIndex)}">
+            <i class="{{competence.icon}} list-item-left greenMaterial" aria-hidden="true"></i>
+            <b class="coTi">{{competence.titre}}</b>
+            <i class="fa fa-chevron-right chevronRight" aria-hidden="true"></i>
+          </li>
+        </ul>
+        <br>
+      </div>
+    </div>
+
+    <!--  RIGHT HALF -->
+    <div class="col-lg-6 col-sm-12 right greenMaterial-bg">
+
+      <div class="col-xs-12 maxWidth-600">
+        <br>
+        <!--  Default text when projects hidden -->
+        <h1 [hidden]="titlePassed != ''" class="centeredH centered bluegray text-uppercase">
+          Selectionnez une compétence
+        </h1>
+
+        <!--Skip skill next/previous-->
+        <div *ngIf="titlePassed" class="row">
+          <button type="button"
+                  (click)="nextSkill(titlePassed)"
+                  class="btn col-xs-6 skipButton pull-right fa fa-chevron-right fa-3x">
+          </button>
+          <button type="button"
+                  (click)="previousSkill(titlePassed)"
+                  class="btn col-xs-6 skipButton pull-left fa fa-chevron-left fa-3x">
+          </button>
+        </div>
+
+        <br>
+        <!-- Display selected skill -->
+        <div *ngIf="titlePassed != ''">
+          <h2 class="centered bluegray text-uppercase mb20">{{titlePassed}}</h2>
+          <br>
+          <ul class="list-group list-group-flush">
+            <li *ngFor="let x of competenceObject" class="list-group-item greyMaterial-border">
+              <i *ngIf="titlePassed == 'langages' ||
+                            titlePassed == 'frameworks' ||
+                            titlePassed == 'autres'"
+                 class="{{x.icon}} list-item-left greyMaterial"></i>
+              <img *ngIf="titlePassed == 'adobe' || titlePassed == 'office'"
+                   class="imgAdobe" src="{{x.icon}}"/>
+              <b class="coTi">{{x.titre}}</b>
+              <em class="list-item-right">{{x.description}}</em>
+            </li>
+          </ul>
+        </div>
+        <br>
+      </div>
+      <!--  END RIGHT HALF -->
+    </div>
+  </div>
+</div>

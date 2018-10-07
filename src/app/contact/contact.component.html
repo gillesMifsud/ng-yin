@@ -1,0 +1,157 @@
+<div class="container-fluid">
+  <div class="row bg-vert-gray-green">
+
+    <!--Left half-->
+    <div class="col-md-6 col-sm-12 left greyMaterial-bg">
+        <fieldset>
+          <legend class="text-center greenMaterial text-uppercase">Contact</legend>
+          <!-- Form -->
+            <form
+              [formGroup]="contactForm"
+              (ngSubmit)="onSubmit(contactForm.value)">
+                <!-- Name -->
+                <div class="form-group">
+                    <label for="name">
+                      <span [class.error-star]="!name.valid && name.touched">* </span>
+                      <span class="greenMaterial">Nom</span></label>
+
+                      <div class="inputGroupContainer">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input  id="name" type="text" class="form-control"
+                        required placeholder="nom"
+                        [formControl]="name">
+                        </div>
+                      </div>
+                      <!-- Errors Name -->
+                      <div class="alert alert-danger marginT5"
+                           [hidden]="name.valid || !name.touched">
+                        <p [hidden]="!name.hasError('required') && name.valid" class="text-center">
+                          * Nom requis!
+                        </p>
+                        <p *ngIf="name.hasError('minlength') && !name.valid" class="text-center">
+                          * Le nom doit comporter plus de 2 caractères!
+                        </p>
+                      </div>
+                </div>
+                <!-- Email -->
+                <div class="form-group">
+                    <label for="email">
+                      <span [class.error-star]="!email.valid && email.touched">* </span>
+                      <span class="greenMaterial">Email</span></label>
+
+                      <div class="inputGroupContainer">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                          <input
+                            id="email" type="email" required placeholder="email"
+                            class="form-control"
+                            [formControl]="email"
+                            pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$">
+                        </div>
+                      </div>
+                      <!-- Errors Email-->
+                      <div class="alert alert-danger marginT5"
+                           [hidden]="email.valid || !email.touched">
+                        <p [hidden]="!email.hasError('required') && email.valid" class="text-center">
+                          * Email requis!
+                        </p>
+                        <p *ngIf="email.errors && email.errors.pattern" class="text-center">
+                          * Email invalide!
+                        </p>
+                      </div>
+                </div>
+                <!-- Telephone -->
+                <div class="form-group">
+                    <label for="phone">
+                      <span class="greenMaterial">Télephone</span>
+                    </label>
+
+                      <div class="inputGroupContainer">
+                        <div class="input-group">
+                          <span class="input-group-addon"><i class="glyphicon glyphicon-phone"></i></span>
+                          <input
+                            id="phone" type="text" required placeholder="Télephone"
+                            class="form-control"
+                            [formControl]="phone"
+                            pattern="^(?:0|\(?\+33\)?\s?|0033\s?)[1-79](?:[\.\-\s]?\d\d){4}$">
+                        </div>
+                      </div>
+                      <!-- Errors Telephone -->
+                      <div class="alert alert-danger marginT5"
+                           [hidden]="phone.valid || !phone.touched">
+                        <p [hidden]="!phone.hasError('required') && email.valid" class="text-center">
+                          * Télephone requis!
+                        </p>
+                        <p *ngIf="phone.errors && phone.errors.pattern" class="text-center">
+                          * Télephone invalide!
+                        </p>
+                      </div>
+                </div>
+                <!-- Subject -->
+                <div class="form-group">
+                  <label for="sujet">
+                    <span [class.error-star]="!sujet.valid && sujet.touched">* </span>
+                    <span class="greenMaterial">Sujet de la demande</span>
+                  </label>
+
+                  <div class="inputGroupContainer">
+                    <div class="input-group">
+                      <span class="input-group-addon"><i class="glyphicon glyphicon-question-sign"></i></span>
+                    <select id="sujet" class="form-control"
+                      required [formControl]="sujet">
+                        <option *ngFor="let p of sujets" [value]="p">{{p}}</option>
+                    </select>
+                    </div>
+                    </div>
+                </div>
+                <!-- Message -->
+                <div class="form-group">
+                    <label for="comment">
+                      <span [class.error-star]="!comment.valid && comment.touched">* </span>
+                      <span class="greenMaterial">Votre message</span>
+                    </label>
+
+                    <div class="inputGroupContainer">
+                      <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-comment"></i></span>
+
+                        <textarea
+                        class="form-control"
+                                id="comment"
+                                cols="30"
+                                rows="10"
+                                [formControl]="comment"
+                                required>
+                        </textarea>
+                        <!-- Erreurs -->
+                        <div class="alert alert-danger marginT5"
+                           [hidden]="comment.valid || !comment.touched">
+                          <p [hidden]="!comment.hasError('required') && comment.valid" class="text-center">
+                            * Message requis!
+                          </p>
+                          <p *ngIf="comment.hasError('minlength') && comment.touched" class="text-center">
+                            * Le message doit comporter au moins 20 caractères!
+                          </p>
+                        </div>
+                        <!-- Input group -->
+                        </div>
+                      <!-- inputGroupContainer -->
+                      </div>
+                    <!-- End Message -->
+                </div>
+
+                <button class="btn greenMaterial-bg white pull-right"
+                  type="submit" [disabled]="!contactForm.valid">Envoyer</button>
+              <br>
+            </form>
+        </fieldset>
+    </div>
+    <!--Right half-->
+    <div class="col-md-6 col-sm-12 greenMaterial-bg">
+        <img class="img-fluid" alt="contact" src="/assets/img/long_shadow/contact.png"/>
+        <br>
+    </div>
+  <!-- Row -->
+  </div>
+</div>

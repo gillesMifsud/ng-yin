@@ -1,0 +1,84 @@
+<div class="container-fluid">
+
+  <div class="row bg-vert-gray-green">
+
+    <div class="col-lg-6 col-sm-12 left greyMaterial-bg">
+
+      <div class="col-xs-12">
+        <br>
+        <h1 class="centered greenMaterial text-uppercase">
+          Réalisations<br>&<br>Projets</h1>
+        <br>
+
+        <ul class="list-group list-group-flush margin-b10">
+          <li class="list-group-item"
+              *ngFor="let listRealisation of listRealisations; let i=index"
+              (click)="load(i)" [ngClass]="{active:(i==selectedIndex)}">
+            <i class="iconRealisation {{listRealisation.icon}} fa-2x" aria-hidden="true"></i>
+            <b class="text-uppercase white" style="line-height:20px;">{{listRealisation.titre}}</b>
+            <span style="float:right;">
+            <i class="fa fa-chevron-right" aria-hidden="true"></i>
+          </span>
+          </li>
+        </ul>
+        <br>
+      </div>
+
+    </div>
+
+    <div class="col-lg-6 col-sm-12 right greenMaterial-bg">
+      <!--  Default text when projects hidden -->
+      <h1 [hidden]="selectedIndex != null"
+          class="centeredH centered bluegray text-uppercase">
+        Selectionnez une réalisation
+      </h1>
+
+      <!-- Projets -->
+      <div [hidden]="selectedIndex == null"
+           class="padding projet"
+           *ngFor="let x of loadedProject">
+
+        <div class="leftIcon">
+          <i class="{{x.icon}} fa-4x"></i>
+        </div>
+
+        <div class="rightIcon">
+          <button
+            class="fa fa-close fa-4x rightIcon"
+            (click)="close()">
+          </button>
+        </div>
+
+        <br>
+
+        <h2 class="centered pink text-uppercase">{{x.titre}}</h2>
+
+        <b class="greenMaterial text-center">Description:</b>
+        <p class="white">{{x.description}}</p>
+
+        <b class="greenMaterial text-center">Particularité:</b>
+        <p class="white">{{x.caracteristiques}}</p>
+
+        <b class="greenMaterial text-center">Technologies:</b>
+        <p class="white">{{x.technologies}}</p>
+
+        <div class="text-center">
+          <img src="{{x.img}}" alt="Image projet" class="img-rounded imgX"
+               [class.imgY]="onlyOne">
+          <img [hidden]="!x.img2" src="{{x.img2}}" alt="Image projet" class="img-rounded imgX contenu"
+               [class.imgY]="onlyOne">
+          <img [hidden]="!x.img3" src="{{x.img3}}" alt="Image projet" class="img-rounded imgX contenu"
+               [class.imgY]="onlyOne">
+        </div>
+
+        <p class="text-center margin5">
+          <small class="white">Réalisé pour
+            <a href="{{x.link}}" class="greenMaterial">{{x.societe}}</a></small>
+        </p>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,34 @@
+.profilImg {
+  width: 200px;
+  height: 200px;
+}
+
+i {
+  width: 35px;
+}
+
+.listNoBullets {
+  list-style-type: none;
+  margin: 25px auto;
+  padding-bottom: 15px;
+  max-width: 600px;
+}
+
+.list-group-item {
+  background-color: transparent;
+  border: 1px solid #63D5C4;
+  line-height: 2em;
+}
+
+.fa-quote-left .fa-quote-right {
+  color: #607D8B;
+}
+
+a:hover {
+  color: #E91E63;
+}
+
+.blockquote{
+  margin: 15px auto;
+  width: 70%;
+}

@@ -1,0 +1,112 @@
+.container{
+  margin-top: 30px;
+  margin-bottom: 70px;
+}
+
+.headerTitle{
+  height: 20%;
+  border-radius: 3px 3px 0 0;
+  margin-bottom: 10px;
+}
+
+.titleDiv{
+  background-color: rgba(69,90,100,.7);
+  padding: 10px;
+}
+
+li:hover{
+  cursor: pointer;
+}
+
+.wi{
+  font-size: 5em;
+  color: #FFF;
+}
+
+.forecastBackground{
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #F5F5F5;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  min-height: 600px;
+}
+
+.transparencyDiv{
+  border-radius: 4px;
+  min-height: 600px;
+}
+
+.singleForecast{
+  background-color: rgba(69,90,100,.7);
+  margin: 0 auto;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  margin: 6px;
+}
+
+.blockForecast{
+  background-color: rgba(255,255,255,.65);
+  margin: 0 auto;
+  border-radius: 20px;
+  box-shadow: 0 2px 5px 0 rgba(0,0,0,.16),0 2px 10px 0 rgba(0,0,0,.12);
+  margin: 6px;
+  padding: 3px;
+}
+
+.lh120{
+  line-height: 100px;
+}
+
+.form-control{
+  margin-bottom: 3px;
+}
+
+button:hover{
+  background-color: #E91E63;
+  color: #FFF;
+}
+
+/*WEATHER COLOR CONDITION COLORS*/
+.rain{
+  background-color: #2196F3;
+}
+
+.clear{
+  background-color: #FFEB3B;
+}
+              
+.thunderstorm{
+  background-color: #9C27B0;
+}
+
+.drizzle{
+  background-color: #03A9F4;
+}
+
+.snow{
+  background-color: #FFF;
+  color: #607D8B;
+}
+
+.atmosphere{
+  background-color: #FFC107;
+}
+
+.clouds{
+  background-color: #9E9E9E;
+}
+
+.extreme{
+  background-color: #f44336;
+}
+
+.additional{
+  background-color: #E91E63;
+}
+
+.default{
+  background-color: #63D5C4;
+}

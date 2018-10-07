@@ -1,0 +1,45 @@
+<div class="container-fluid">
+
+  <div class="row bg-vert-green-gray">
+
+    <div class="col-lg-6 col-sm-12 left greenMaterial-bg">
+      <div class="col-xs-12">
+        <h1 class="centered bluegray text-uppercase sectionTitle">Gil <br>Mifsud</h1>
+        <p class="centered bluegray">Développeur Web & Mobile cross-patform</p>
+        <br>
+        <img src="/assets/img/profil.png" alt="profile picture" class="profilImg img-circle m-x-auto d-block">
+        <br>
+        <blockquote class="blockquote">
+          <p class="justify">
+            <i class="fa fa-quote-left" aria-hidden="true"></i>
+            <span class="white">
+                Tout juste diplômé du titre de <b>Développeur Logiciel</b> et passionné par le développement, je suis à la recherche d'une société prête à m'accueillir afin de mettre
+                à disposition mes compétences
+                </span>
+            <i class="fa fa-quote-right" aria-hidden="true"></i>
+          </p>
+        </blockquote>
+      </div>
+    </div>
+
+    <div class="col-lg-6 col-sm-12 right greyMaterial-bg">
+      <div class="col-xs-12">
+
+        <h1 class="centered white text-uppercase sectionTitle">Activité<br>récente</h1>
+
+        <br>
+
+          <ul class="listNoBullets padding list-group">
+            <li class="list-group-item" *ngFor="let about of abouts">
+              <i class="{{about.icon}} margin-r5 greenMaterial"></i>
+              <span class="white text-center">{{about.text}} - </span>
+              <a class="bluegray" href="{{about.link}}">{{about.linkDescription}}</a>
+            </li>
+          </ul>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>

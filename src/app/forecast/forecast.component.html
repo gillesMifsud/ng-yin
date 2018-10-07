@@ -1,0 +1,57 @@
+<div class="container">
+    <div *ngIf="cityExists" class="forecastBackground"
+         [ngStyle]="{'background-image': 'url(' + bgWeatherImg + ')'}">
+
+        <div class="transparencyDiv">
+
+            <div class="text-center titleDiv">
+                <h2 class="greenMaterial text-uppercase">Prévisions météo</h2>
+                <p><em class="white">{{now}}</em></p>
+            </div>
+
+            <div style="width:100%; height: 130px;">
+                <div class="padding form-group pull-right">
+                    <label for="city">Entrez une ville</label>
+                    <input
+                        id="city" class="form-control" type="text" placeholder="entrez une ville"
+                        [(ngModel)]="city">
+                    <button
+                        class="btn btn-default greyMaterial-bg white pull-right"
+                        type="submit" (click)="searchCity(city)">
+                        Rechercher
+                    </button>
+                </div>
+
+                <div class="pull-left">
+                    <h2 class="greyMaterial paddingL20">{{response.city.name | uppercase}},
+                        <span> {{response.city.country}}</span>
+                    </h2>
+                </div>
+            </div>
+
+            <div class="padding text-center weatherDiv">
+
+                <div *ngFor="let jour of response.list"
+                     style="display:inline-block"
+                     class="blockForecast">
+
+                    <p>{{jour.dt*1000 | date:'dd/MM/yyyy'}}</p>
+                    <b class="lead pink">{{jour.temp.day | round}}°</b>
+
+                    <br/>
+                    <!--<div class="singleForecast"
+                         [ngClass]="setClasses(jour.temp.day)"
+                         [style.backgroundColor]="jour.temp.day <12 ? '#B3E5FC' : '#B2DFDB'">-->
+                    <div class="singleForecast {{conditionColor}}">
+                        <i class="lh120 icons wi wi-owm-{{jour.weather[0].id}}"></i>
+                    </div>
+                    <div class="pink">
+                        <span>{{jour.temp.min | round}}°</span> | <span>{{jour.temp.max | round}}°</span>
+                    </div>
+                    <p>{{jour.weather[0].description}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
